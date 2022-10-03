@@ -1,9 +1,9 @@
 "# SheCollectionBE" 
 
 ## Node 14.20
-npm install
-npm run
+npm install <br/>
+npm run<br/>
 
 ## ASP.NET Core
-Build
-update-database at VS console
+Build<br/>
+update-database at VS console<br/>
