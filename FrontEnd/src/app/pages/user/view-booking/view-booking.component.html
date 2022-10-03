@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Bookings</h2>
+  <div class="controls">
+    <app-search (search)="search($event)"></app-search>
+  </div>
+  <table *ngIf="!loading">
+    <thead>
+      <tr>
+        <th>Booking ID</th>
+        <th>Service Name</th>
+        <th>Booking Date</th>
+        <th>Booking Time</th>
+        <th>Staff Member</th>
+        <th>Price</th>
+        <th>Order Status</th>
+        <th>View</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let booking of filteredBookings; let i = index"
+        [class.dark]="i % 2 === 1"
+      >
+        <td>{{ booking.bookingId }}</td>
+        <td>{{ booking.serviceTable.serviceName }}</td>
+        <td>{{ booking.schedule.date | date: "dd MMM yyyy" }}</td>
+        <td>{{ booking.timeslot.startTime | date: "HH:mm" }}</td>
+        <td>{{ booking.employee.employeeName }}</td>
+        <td>R{{ booking.serviceTable.servicePrice }}</td>
+        <td>{{ booking.bookingStatus.bookingStatusName }}</td>
+
+        <td class="icon" (click)="viewBooking(booking.bookingId)">
+          <span class="material-symbols-outlined"> visibility </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

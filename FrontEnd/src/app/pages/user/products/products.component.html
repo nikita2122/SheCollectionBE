@@ -1,0 +1,52 @@
+<div class="container" *ngIf="type === 1">
+  <h3>Products</h3>
+  <div class="carousel">
+    <div class="cards">
+      <div class="card" *ngFor="let prod of displayListProd">
+        <img src="{{ imgUrl + prod.productPicture }}" alt="" class="img" />
+        <p class="name">{{ prod.productName }}</p>
+        <p class="price">R{{ prod.productPrice }}</p>
+        <div class="btn">
+          <button class="btn-view" (click)="viewProduct(prod.productId)">
+            View Product
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="pagination">
+      <div class="beginning" (click)="paginatorBeginning()">
+        <span class="material-symbols-outlined"> arrow_back_ios </span>
+      </div>
+      <div
+        class="number"
+        [class.active]="n === selectedPage"
+        *ngFor="let n of paginatorNumbers"
+        (click)="movePaginator(n)"
+      >
+        {{ n }}
+      </div>
+      <div class="end" (click)="paginatorEnd()">
+        <span class="material-symbols-outlined"> arrow_forward_ios </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="type === 2">
+  <h1 class="header">Services</h1>
+  <div class="services-container">
+    <div class="name">
+      <h2>Name</h2>
+      <p *ngFor="let ser of services">{{ ser.serviceName }}</p>
+    </div>
+    <div class="price">
+      <h2>Price</h2>
+      <p *ngFor="let ser of services">
+        R{{ ser.servicePrice | number: "1.2-2" }}
+      </p>
+    </div>
+  </div>
+  <div class="row btns">
+    <button class="btn gold" (click)="makeABooking()">Make a booking</button>
+  </div>
+</div>

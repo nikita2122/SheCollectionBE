@@ -1,0 +1,51 @@
+.container {
+  padding: 50px;
+  .login {
+    width: 500px;
+    margin: 0px auto;
+    border: 2px solid #000;
+    padding: 20px;
+    h3 {
+      padding: 10px 0px;
+    }
+    .row {
+      padding: 20px 0px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: flex-start;
+      justify-content: center;
+      align-items: flex-start;
+
+      label {
+        padding: 10px 0px;
+        font-weight: bolder;
+      }
+
+      input {
+        width: 100%;
+        border: 2px solid #000;
+        height: 30px;
+      }
+
+      &.btns {
+        width: 100%;
+        .btn {
+          width: 100%;
+          margin: 0px;
+        }
+      }
+      &.links {
+        flex-direction: row;
+        align-items: center;
+        font-weight: 700;
+        font-size: 18px;
+        a {
+          text-decoration: none;
+          color: #000;
+          margin: 0px 10px;
+        }
+      }
+    }
+  }
+}

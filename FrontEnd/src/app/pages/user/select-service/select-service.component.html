@@ -1,0 +1,50 @@
+<div class="container">
+  <h2 class="title">Bookings</h2>
+  <h2 class="subtitle">Select Service Type</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>[]</th>
+        <th>Service</th>
+        <th>Price</th>
+        <th>Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let service of services; let i = index"
+        [class.dark]="i % 2 === 1"
+      >
+        <td>
+          <input
+            type="radio"
+            name=""
+            class="radio"
+            id="radio-{{ service.serviceTableId }}"
+            (change)="select(service.serviceTableId)"
+          />
+        </td>
+        <td>{{ service.serviceName }}</td>
+        <td>R{{ service.servicePrice }}</td>
+        <td>
+          {{
+            service.durationMin === service.durationMax
+              ? transformToTime(service.durationMin)
+              : transformToTime(service.durationMin) +
+                " - " +
+                transformToTime(service.durationMax)
+          }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row btns">
+    <button
+      class="btn gold"
+      [disabled]="selectedServiceId === undefined"
+      (click)="navigate()"
+    >
+      Next
+    </button>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+@import "../../../../variables.scss";
+.container {
+  .controls {
+    margin: 50px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    .add-btn {
+      cursor: pointer;
+      margin-left: 20px;
+      background-color: #000;
+      border: 1px solid #000;
+      width: 40px;
+      height: 40px;
+      .material-symbols-outlined {
+        color: $secondary-text-color;
+      }
+    }
+  }
+
+  table {
+    border: 2px solid black;
+    width: 100%;
+    border-collapse: collapse;
+    thead {
+      background-color: rgb(39, 39, 39);
+      color: rgb(170, 170, 170);
+      tr {
+        th {
+          height: 80px;
+          border: 2px solid #000;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          text-align: center;
+          height: 80px;
+          border: 2px solid #000;
+
+          &.icon {
+            cursor: pointer;
+          }
+        }
+        &.dark {
+          background-color: rgba(114, 114, 114, 0.464);
+        }
+      }
+    }
+  }
+}

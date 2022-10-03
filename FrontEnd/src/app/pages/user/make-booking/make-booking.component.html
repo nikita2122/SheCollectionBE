@@ -1,0 +1,25 @@
+<div class="container">
+  <h2 class="title">Bookings</h2>
+  <h2 class="subtitle">Select Service Category</h2>
+  <div class="row">
+    <div class="input">
+      <select name="cat" id="cat" [(ngModel)]="category">
+        <option
+          *ngFor="let cat of categories"
+          value="{{ cat.serviceCategoryId }}"
+        >
+          {{ cat.serviceCategoryName }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="row btns">
+    <button
+      class="btn gold"
+      [disabled]="category === undefined"
+      (click)="navigate()"
+    >
+      Next
+    </button>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+<div class="container">
+  <h2 class="header">Reports</h2>
+  <h3 class="link" (click)="generateSalesReport()">1. Generate Sales Report</h3>
+  <h3 class="link" (click)="generateInventoryReport()">
+    2. Generate Inventory Report
+  </h3>
+  <div class="" id="invoice" #invoice>
+    <div class="report-container" *ngIf="showing === 1 && salesData.length > 0">
+      <div class="logo">
+        <img src="../../../assets/images/logo-icon.jfif" class="logo-icon" />
+      </div>
+      <h3 class="header">Sales Report</h3>
+      <div class="date">
+        <p>Month:</p>
+        <p>{{ date | date: "MMMM" }}</p>
+        <p>Year:</p>
+        <p>{{ date | date: "YYYY" }}</p>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <td>Product ID</td>
+            <td>Order ID</td>
+            <td>Date</td>
+            <td>Amount</td>
+          </tr>
+        </thead>
+        <tbody *ngFor="let sale of salesData">
+          <tr *ngFor="let line of sale.orderLines">
+            <td>{{ line.product.productId }}</td>
+            <td>{{ sale.orderId }}</td>
+            <td>{{ sale.date | date: "dd/MM/YYYY" }}</td>
+            <td>{{ line.orderQuantity * line.product.productPrice }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="revenue">
+        Total Revenue Generated for the month of {{ date | date: "MMMM YYYY" }}:
+        <strong>R{{ salesTotal }}</strong>
+      </p>
+    </div>
+
+    <div
+      class="report-container"
+      *ngIf="showing === 2 && productData.length > 0"
+    >
+      <div class="logo">
+        <img src="../../../assets/images/logo-icon.jfif" class="logo-icon" />
+      </div>
+      <h3 class="header">Inventory Report</h3>
+      <div class="date">
+        <p>Month:</p>
+        <p>{{ date | date: "MMMM" }}</p>
+        <p>Year:</p>
+        <p>{{ date | date: "YYYY" }}</p>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <td>Product ID</td>
+            <td>Product Name</td>
+            <td>Product Sizes</td>
+            <td>Product Quantity</td>
+            <td>Product Price</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let prod of productData">
+            <td>{{ prod.productId }}</td>
+            <td>{{ prod.productName }}</td>
+            <td>{{ prod.productType.productTypeName }}</td>
+            <td>{{ prod.quantityAvailable }}</td>
+            <td>{{ prod.productPrice }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="download row btns" *ngIf="showing !== 0">
+    <button class="btn" (click)="downloadPdf()">Download</button>
+  </div>
+</div>

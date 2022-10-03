@@ -1,0 +1,36 @@
+<div class="container">
+  <h2 class="title">My Order History</h2>
+  <h3 class="sub-title">These are your previous orders.</h3>
+  <div class="orders">
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Product Name</th>
+          <th>Product Size</th>
+          <th>Product Colour</th>
+          <th>Quantity</th>
+          <th>Total Price</th>
+          <th>Order Status</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let order of orders">
+        <tr
+          *ngFor="let orderLine of order.orderLines; let i = index"
+          [class.dark]="i % 2 === 1"
+        >
+          <td>{{ order.orderId }}</td>
+          <td>{{ orderLine.product.productName }}</td>
+          <td>{{ orderLine.size.sizeName }}</td>
+          <td>{{ orderLine.colour.colourName }}</td>
+          <td>{{ orderLine.orderQuantity }}</td>
+          <td>{{ order.orderTotal }}</td>
+          <td>{{ order.orderStatus.orderStatusName }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row btns">
+    <button class="btn" (click)="back()">Back</button>
+  </div>
+</div>

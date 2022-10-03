@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="update-psswd">
+    <h3>Forgot Your Password?</h3>
+    <div class="update-psswd-container" *ngIf="!loading">
+      <div class="row">
+        <label for=""
+          >Please enter the you used while registering so that you may get a
+          password reset link by email.</label
+        >
+      </div>
+      <div class="row">
+        <input type="email" placeholder="Email" [(ngModel)]="email" />
+      </div>
+      <div class="row">
+        <p class="error" *ngIf="errMsg !== undefined">
+          {{ errMsg }}
+        </p>
+      </div>
+
+      <div class="row btns">
+        <button class="btn" (click)="update()" [disabled]="email === undefined">
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

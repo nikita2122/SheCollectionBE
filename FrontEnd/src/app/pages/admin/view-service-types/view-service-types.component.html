@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Service Management</h2>
+  <div class="controls">
+    <app-search (search)="search($event)"></app-search>
+    <button class="add-btn" (click)="addService()">
+      <span class="material-symbols-outlined"> add </span>
+    </button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Service Type Name</th>
+        <th>Service Category Name</th>
+        <th>View</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let service of filteredServices; let i = index"
+        [class.dark]="i % 2 === 1"
+      >
+        <td>{{ service.serviceTypeName }}</td>
+        <td>{{ service.serviceCategory.serviceCategoryName }}</td>
+
+        <td class="icon" (click)="viewService(service.serviceTypeId)">
+          <span class="material-symbols-outlined"> visibility </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,99 @@
+<div class="container">
+  <div class="register">
+    <h3>Register</h3>
+    <div class="register-container" *ngIf="!loading">
+      <div class="icon-container">
+        <img
+          src="{{ imgUrl }}"
+          alt=""
+          srcset=""
+          class="profile-pic"
+          *ngIf="file !== undefined || imgUrl !== undefined"
+        />
+        <span
+          class="material-symbols-outlined icon"
+          *ngIf="file === undefined && imgUrl === undefined"
+        >
+          account_circle
+        </span>
+        <div class="row btns">
+          <button class="btn gold" (click)="fileInput.click()">
+            <span class="material-symbols-outlined"> file_upload </span>
+          </button>
+          <input
+            style="display: none"
+            type="file"
+            name=""
+            id=""
+            (change)="updateFile($event)"
+            [formEnctype]="'multipart/form-data'"
+            accept="image/*"
+            #fileInput
+          />
+        </div>
+      </div>
+      <form [formGroup]="registerForm" class="register-form">
+        <div class="row">
+          <label for="username">Username: </label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            formControlName="username"
+            [readonly]="editing"
+          />
+        </div>
+        <div class="row" *ngIf="registerForm.get('password') !== null">
+          <label for="password">Password: </label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            formControlName="password"
+          />
+        </div>
+        <div class="row">
+          <label for="firstname">First Name: </label>
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            formControlName="firstname"
+          />
+        </div>
+        <div class="row">
+          <label for="lastname">Last Name: </label>
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            formControlName="lastname"
+          />
+        </div>
+        <div class="row">
+          <label for="email">Email Address: </label>
+          <input type="email" name="email" id="email" formControlName="email" />
+        </div>
+        <div class="row">
+          <label for="contact">Contact Number: </label>
+          <input
+            type="number"
+            name="contact"
+            id="contact"
+            formControlName="contact"
+          />
+        </div>
+        <div class="row btns">
+          <button
+            class="btn gold"
+            (click)="submit()"
+            [disabled]="!registerForm.valid || !registerForm.dirty"
+          >
+            {{ editing ? "Update" : "Register" }}
+          </button>
+          <button class="btn" (click)="back()">Back</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

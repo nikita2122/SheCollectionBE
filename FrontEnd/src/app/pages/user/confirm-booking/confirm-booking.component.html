@@ -1,0 +1,41 @@
+<div class="container">
+  <h2 class="header">Bookings</h2>
+  <div class="confirm-booking-container" *ngIf="!loading">
+    <h3 class="header">{{ viewing ? "View Booking" : "Confirm Booking" }}</h3>
+    <div class="row">
+      <h3>Service:</h3>
+      <p>{{ service.serviceName }}</p>
+    </div>
+    <div class="row">
+      <h3>Staff Member:</h3>
+      <p>{{ staffMember.employeeName + " " + staffMember.employeeSurname }}</p>
+    </div>
+    <div class="row">
+      <h3>Date</h3>
+      <p>{{ date | date: "dd MMMM y" }}</p>
+    </div>
+    <div class="row">
+      <h3>Time</h3>
+      <p>
+        <!-- {{ timeSlot.startTime | date: "HH:mm" }} -
+        {{ timeSlot.endTime | date: "HH:mm" }} -->
+      </p>
+    </div>
+    <div class="row">
+      <h3>Total Price:</h3>
+      <p>R{{ service.servicePrice }}</p>
+    </div>
+    <div class="controls">
+      <div class="row btns" *ngIf="!viewing">
+        <button class="btn" (click)="back()">Back</button>
+        <button class="btn gold" (click)="makeBooking()">Make Booking</button>
+      </div>
+      <div class="row btns" *ngIf="viewing">
+        <button class="btn" (click)="back()">Back</button>
+        <button class="btn" (click)="update()">Update</button>
+        <button class="btn" (click)="reschedule()">Reschedule</button>
+        <button class="btn" (click)="cancelBooking()">Cancel Booking</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>Backup Management</h2>
+    <div class="controls">
+      <button class="add-btn" (click)="add()">
+        <span class="material-symbols-outlined"> add </span>
+      </button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Backup ID</th>
+          <th>Backup Name</th>
+          <th>Backup Date</th>
+          <th>Backup Path</th>
+          <th>View</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let product of lst; let i = index"
+          [class.dark]="i % 2 === 1"
+        >
+          <td>{{ product.productId }}</td>
+          <td>{{ product.productName }}</td>
+          <td>
+          </td>
+          <td>
+            
+          </td>
+          <td class="icon" (click)="view(product.productId)">
+            <span class="material-symbols-outlined"> visibility </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

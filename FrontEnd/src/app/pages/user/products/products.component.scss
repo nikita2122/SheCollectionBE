@@ -1,0 +1,115 @@
+@import "./../../../../variables.scss";
+
+.container {
+  .carousel {
+    .cards {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 80vw;
+      margin: 20px auto;
+      .card {
+        .img {
+          width: 200px;
+          height: 250px;
+        }
+        .name {
+          color: rgb(130, 130, 130);
+        }
+        .price {
+          color: #000;
+          font-weight: 900;
+          font-size: 30px;
+        }
+
+        .btn {
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          align-content: center;
+          justify-content: center;
+          .btn-view {
+            margin-top: 20px;
+            padding: 5px 30px;
+            background-color: #000;
+            color: #fff;
+            cursor: pointer;
+            &:hover {
+              color: $secondary-text-color;
+            }
+          }
+        }
+      }
+    }
+    .pagination {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      .beginning,
+      .number,
+      .end {
+        border: 1px solid #000;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #0002;
+        }
+      }
+
+      .number {
+        &.active {
+          background-color: #0001;
+        }
+      }
+    }
+  }
+
+  .services-container,
+  .header {
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 10px;
+    margin: 0px auto;
+    .name,
+    .price {
+      h2 {
+        margin: 20px 0px;
+        font-weight: 900;
+      }
+      p {
+        margin: 10px 0px;
+        font-weight: 400;
+        font-size: 24px;
+      }
+    }
+  }
+
+  .services-container {
+    border: 2px solid #000;
+  }
+
+  .btns {
+    width: 90vw;
+    margin: 0px auto;
+  }
+}

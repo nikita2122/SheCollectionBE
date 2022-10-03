@@ -1,0 +1,55 @@
+<div class="container">
+  <h2 class="title">Product</h2>
+  <div class="product-view" *ngIf="!loading">
+    <div class="prod-img">
+      <img src="{{ imgUrl + product.productPicture }}" alt="" />
+    </div>
+    <form class="prod-details" [formGroup]="productForm">
+      <h1 class="name">{{ product.productName }}</h1>
+      <p class="desc">{{ product.productDescription }}</p>
+      <div class="colour">
+        <p>Colour:</p>
+        <select name="" id="" formControlName="colour">
+          <option
+            value="{{ col.colourId }}"
+            *ngFor="let col of product.colours"
+          >
+            {{ col.colourName }}
+          </option>
+        </select>
+      </div>
+      <div class="size">
+        <p>Size:</p>
+        <select name="" id="" formControlName="size">
+          <option value="{{ size.sizeId }}" *ngFor="let size of product.sizes">
+            {{ size.sizeName }}
+          </option>
+        </select>
+      </div>
+      <div class="row">
+        <div class="quantity">
+          <p>Quantity:</p>
+          <input
+            type="number"
+            id="quantity"
+            name="quantity"
+            value="1"
+            min="1"
+            step="1"
+            formControlName="quantity"
+          />
+        </div>
+        <div class="price">
+          <h2>
+            Total Price: R
+            {{ product.productPrice * productForm.get("quantity")?.value }}
+          </h2>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row btns">
+    <button class="btn" (click)="cancel()">Back</button>
+    <button class="btn" (click)="addToCart()">Add To Cart</button>
+  </div>
+</div>

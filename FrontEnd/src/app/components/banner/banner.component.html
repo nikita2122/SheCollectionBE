@@ -1,0 +1,21 @@
+<div id="banner">
+  <div class="icon" (click)="decIndex()">
+    <span class="material-symbols-outlined"> chevron_left </span>
+  </div>
+  <div class="content">
+    <div class="main">
+      <img src="{{ imgUrl + data[selectedIndex] }}" alt="" srcset="" />
+    </div>
+    <div class="index">
+      <div
+        class="circle"
+        *ngFor="let d of data; index as i"
+        [class.selected]="i === selectedIndex"
+        (click)="changeIndex(i)"
+      ></div>
+    </div>
+  </div>
+  <div class="icon" (click)="incIndex()">
+    <span class="material-symbols-outlined"> chevron_right </span>
+  </div>
+</div>

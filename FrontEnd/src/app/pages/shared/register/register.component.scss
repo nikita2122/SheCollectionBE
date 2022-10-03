@@ -1,0 +1,84 @@
+.container {
+  padding: 50px;
+  .register {
+    width: fit-content;
+    margin: 0px auto;
+    border: 2px solid #000;
+    padding: 20px;
+    h3 {
+      padding: 10px 0px;
+    }
+    .register-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+
+      .icon-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        .profile-pic {
+          margin: 50px;
+          width: 350px;
+          height: 350px;
+          border-radius: 175px;
+        }
+        .icon {
+          font-size: 400px;
+        }
+        .row {
+          &.btns {
+            .btn {
+              display: flex;
+              flex-direction: row;
+              flex-wrap: nowrap;
+              align-content: center;
+              justify-content: center;
+              align-items: center;
+              width: 50px;
+              height: 50px;
+            }
+          }
+        }
+      }
+      .register-form {
+        .row {
+          width: 500px;
+          padding: 10px 0px;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          align-content: flex-start;
+          justify-content: space-between;
+          align-items: flex-start;
+
+          label {
+            padding: 10px 0px;
+            font-weight: bolder;
+          }
+
+          input {
+            width: 300px;
+            border: 2px solid rgb(117, 117, 117);
+            height: 30px;
+            padding: 5px;
+          }
+
+          &.btns {
+            width: 100%;
+            .btn {
+              width: 100%;
+              margin: 0px 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

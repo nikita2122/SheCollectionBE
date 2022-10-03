@@ -1,0 +1,51 @@
+<div class="container">
+  <h2>Service Management</h2>
+  <div class="view-service" *ngIf="service !== undefined">
+    <h2>View Service</h2>
+    <p>Service Name: {{ service.serviceName }}</p>
+    <p>Service Description: {{ service.serviceDescription }}</p>
+    <div class="row">
+      <p>Service Picture:</p>
+      <img src="{{ imgUrl + service.servicePicture }}" alt="" srcset="" />
+    </div>
+    <p>
+      Service Type:
+      {{ service.serviceType.serviceTypeName }}
+    </p>
+    <p>Service Price: R{{ service.servicePrice | number: "1.2-2" }}</p>
+    <div class="row btns">
+      <button class="btn" (click)="close()">Back</button>
+      <button class="btn" (click)="deleteSer()">Delete</button>
+      <button class="btn gold" (click)="update()">Update</button>
+    </div>
+  </div>
+
+  <div class="view-service" *ngIf="serviceType !== undefined">
+    <h2>View Service Type</h2>
+    <p>Service Name: {{ serviceType.serviceTypeName }}</p>
+    <p>
+      Service Category: {{ serviceType.serviceCategory.serviceCategoryName }}
+    </p>
+
+    <div class="row btns">
+      <button class="btn" (click)="close()">Back</button>
+      <button class="btn" (click)="deleteSer()">Delete</button>
+      <button class="btn gold" (click)="update()">Update</button>
+    </div>
+  </div>
+
+  <div class="view-service" *ngIf="serviceCategory !== undefined">
+    <h2>View Service Category</h2>
+    <p>Service Name: {{ serviceCategory.serviceCategoryName }}</p>
+    <p>Product Description: {{ serviceCategory.serviceCategoryDescription }}</p>
+    <div class="row">
+      <p>Product Picture:</p>
+      <img src="{{ imgUrl + serviceCategory.imgUrl }}" alt="" srcset="" />
+    </div>
+    <div class="row btns">
+      <button class="btn" (click)="close()">Back</button>
+      <button class="btn" (click)="deleteSer()">Delete</button>
+      <button class="btn gold" (click)="update()">Update</button>
+    </div>
+  </div>
+</div>

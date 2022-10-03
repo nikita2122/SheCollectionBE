@@ -1,0 +1,8 @@
+<div id="content" [class.admin]="isAdmin" [class.user]="!isAdmin">
+  <app-main-navbar *ngIf="!isAdmin"></app-main-navbar>
+  <app-side-navbar *ngIf="isAdmin"></app-side-navbar>
+  <div id="main-content" [class.admin]="isAdmin">
+    <router-outlet></router-outlet>
+  </div>
+  <app-bottom-navbar *ngIf="!isAdmin"></app-bottom-navbar>
+</div>

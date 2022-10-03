@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="update-psswd">
+    <h3>Update Password</h3>
+    <div class="update-psswd-container" *ngIf="!loading">
+      <div class="row">
+        <label for=""
+          >Please enter the following details to update your password.</label
+        >
+      </div>
+      <div class="row">
+        <input type="email" placeholder="Email" [(ngModel)]="email" />
+      </div>
+      <div class="row">
+        <input
+          type="text"
+          placeholder="Old Password"
+          [(ngModel)]="oldPassword"
+        />
+      </div>
+      <div class="row">
+        <input
+          type="text"
+          placeholder="New Password"
+          [(ngModel)]="newPassword"
+        />
+      </div>
+      <div class="row">
+        <input
+          type="text"
+          placeholder="Confirm new password"
+          [(ngModel)]="newPasswordConf"
+        />
+      </div>
+      <div class="row btns">
+        <button
+          class="btn"
+          (click)="update()"
+          [disabled]="
+            email === undefined ||
+            oldPassword === undefined ||
+            newPassword === undefined ||
+            newPasswordConf === undefined ||
+            newPassword !== newPasswordConf
+          "
+        >
+          Submit
+        </button>
+        <button class="btn" (click)="cancel()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

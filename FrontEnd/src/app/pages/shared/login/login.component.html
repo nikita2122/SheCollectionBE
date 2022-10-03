@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="login">
+    <h3>Login</h3>
+    <form [formGroup]="loginForm">
+      <div class="row">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          formControlName="username"
+        />
+      </div>
+      <div class="row">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          formControlName="password"
+        />
+      </div>
+      <div class="row btns">
+        <button class="btn" (click)="submit()" [disabled]="!loginForm.valid">
+          Login
+        </button>
+      </div>
+      <div class="row links">
+        <a routerLink="/forgot-password">Forgot password</a><span>|</span
+        ><a routerLink="/register">Register Profile</a>
+      </div>
+    </form>
+  </div>
+</div>

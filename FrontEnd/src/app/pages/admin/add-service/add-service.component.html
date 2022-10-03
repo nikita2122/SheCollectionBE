@@ -1,0 +1,109 @@
+<div class="container">
+  <h2>Service Management</h2>
+  <div class="add-product-modal" *ngIf="!loading">
+    <h2>{{ updating ? "Update Service" : "Add Service" }}</h2>
+    <p>Please enter the new service details:</p>
+    <form [formGroup]="addServiceForm">
+      <div class="row">
+        <label for="">Service Name:</label>
+        <div class="input">
+          <input type="text" name="" id="" formControlName="name" />
+        </div>
+      </div>
+      <div class="row">
+        <label for="">Service Description:</label>
+        <div class="input">
+          <textarea name="" id="" formControlName="desc"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <label for="">Service Image</label>
+        <div class="input">
+          <img
+            #image
+            class="upload-image"
+            *ngIf="file !== undefined"
+            src="{{ imgUrl }}"
+            (click)="fileInput.click()"
+          />
+          <button
+            class="upload-image-button"
+            (click)="fileInput.click()"
+            *ngIf="file === undefined"
+          >
+            Upload Service Image
+          </button>
+          <input
+            style="display: none"
+            type="file"
+            name=""
+            id=""
+            (change)="updateFile($event)"
+            [formEnctype]="'multipart/form-data'"
+            accept="image/*"
+            #fileInput
+          />
+        </div>
+      </div>
+      <div class="row">
+        <label for="cat">Service Category</label>
+        <div class="input">
+          <select
+            name="cat"
+            id="cat"
+            (change)="categoryChange($event)"
+            formControlName="cat"
+          >
+            <option
+              *ngFor="let cat of categories"
+              value="{{ cat.serviceCategoryId }}"
+            >
+              {{ cat.serviceCategoryName }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <label for="cat">Service Type</label>
+        <div class="input">
+          <select name="type" id="type" formControlName="type">
+            <option
+              *ngFor="let type of filteredTypes"
+              value="{{ type.serviceTypeId }}"
+            >
+              {{ type.serviceTypeName }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <label for="">Service Min Duration (minutes):</label>
+        <div class="input">
+          <input type="text" name="" id="" formControlName="durationMin" />
+        </div>
+      </div>
+      <div class="row">
+        <label for="">Service Max Duration (minutes):</label>
+        <div class="input">
+          <input type="text" name="" id="" formControlName="durationMax" />
+        </div>
+      </div>
+      <div class="row">
+        <label for="">Service Price:</label>
+        <div class="input">
+          <input type="text" name="" id="" formControlName="price" />
+        </div>
+      </div>
+      <div class="row btns">
+        <button class="btn" (click)="close()">Cancel</button>
+        <button
+          class="btn gold"
+          (click)="addProduct()"
+          [disabled]="!addServiceForm.valid || file === undefined"
+        >
+          Add
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

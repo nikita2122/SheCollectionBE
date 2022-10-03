@@ -1,0 +1,50 @@
+.container {
+  padding: 20px 40px;
+  .title {
+    padding: 20px 0px;
+  }
+  .subtitle {
+    padding: 20px 0px;
+    font-weight: 100;
+  }
+  .row {
+    .input {
+      select {
+        width: 200px;
+        height: 30px;
+        border: 1px solid #000;
+      }
+    }
+  }
+  table {
+    border: 2px solid black;
+    width: 100%;
+    border-collapse: collapse;
+    thead {
+      background-color: rgb(39, 39, 39);
+      color: rgb(170, 170, 170);
+      tr {
+        th {
+          height: 80px;
+          border: 2px solid #000;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          text-align: center;
+          height: 80px;
+          border: 2px solid #000;
+
+          &.icon {
+            cursor: pointer;
+          }
+        }
+        &.dark {
+          background-color: rgba(114, 114, 114, 0.464);
+        }
+      }
+    }
+  }
+}

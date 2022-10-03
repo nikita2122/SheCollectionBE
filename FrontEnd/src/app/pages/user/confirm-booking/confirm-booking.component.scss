@@ -1,0 +1,22 @@
+.container {
+  padding: 20px;
+  .header {
+    margin: 20px 0px;
+  }
+  .confirm-booking-container {
+    border: 1px solid #000;
+    .header {
+      margin: 10px 20px;
+    }
+    .row {
+      margin: 20px;
+    }
+    .controls {
+      .btn {
+        &:hover {
+          color: rgb(255, 234, 0);
+        }
+      }
+    }
+  }
+}

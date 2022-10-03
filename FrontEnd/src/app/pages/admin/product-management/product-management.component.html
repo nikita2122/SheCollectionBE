@@ -1,0 +1,40 @@
+<div class="container">
+  <h2>Product Management</h2>
+  <div class="controls">
+    <app-search (search)="search($event)"></app-search>
+    <button class="add-btn" (click)="addProduct()">
+      <span class="material-symbols-outlined"> add </span>
+    </button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Product Sizes</th>
+        <th>Product Colours</th>
+        <th>View</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let product of filteredProducts; let i = index"
+        [class.dark]="i % 2 === 1"
+      >
+        <td>{{ product.productId }}</td>
+        <td>{{ product.productName }}</td>
+        <td>
+          <span *ngFor="let size of product.sizes">{{ size.sizeName }} </span>
+        </td>
+        <td>
+          <span *ngFor="let colour of product.colours"
+            >{{ colour.colourName }}
+          </span>
+        </td>
+        <td class="icon" (click)="viewProduct(product.productId)">
+          <span class="material-symbols-outlined"> visibility </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

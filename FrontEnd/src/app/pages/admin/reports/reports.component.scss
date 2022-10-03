@@ -1,0 +1,77 @@
+.container {
+  .header {
+    padding: 10px 0px;
+  }
+  .link {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  #invoice {
+    padding: 50px;
+    .report-container {
+      .logo {
+        width: 100%;
+        .logo-icon {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          align-content: center;
+          justify-content: flex-end;
+          align-items: center;
+          width: 150px;
+          height: 150px;
+          margin-left: auto;
+        }
+      }
+
+      .header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+      }
+      .date {
+        display: flex;
+        padding: 20px 0px;
+        p {
+          margin-right: 200px;
+        }
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+
+        thead {
+          background-color: #000;
+          color: #fff;
+          tr {
+            td {
+              padding: 10px;
+            }
+          }
+        }
+
+        tbody {
+          tr {
+            border-bottom: 1px solid #000;
+            td {
+              padding: 0px 0px 20px 0px;
+              &:nth-child(1) {
+                color: rgb(194, 123, 9);
+              }
+            }
+          }
+        }
+      }
+
+      .revenue {
+        padding: 10px 0px;
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.container {
+  padding: 20px;
+  h2 {
+    padding: 20px 0px;
+  }
+  a {
+    h3 {
+      font-weight: 100;
+      color: #000;
+    }
+    :hover {
+      text-decoration: underline;
+    }
+  }
+}

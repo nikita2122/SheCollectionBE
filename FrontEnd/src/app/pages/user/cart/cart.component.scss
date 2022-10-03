@@ -1,0 +1,100 @@
+.container {
+  width: 80vw;
+  margin: 20px auto;
+  .title {
+    padding: 50px 0px;
+  }
+  .cart {
+    .empty {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bolder;
+      color: rgb(128, 128, 128);
+    }
+    .items {
+      .product-view {
+        margin: 10px 0px;
+        border: 2px solid #000;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: flex-start;
+        align-items: flex-start;
+        .prod-img {
+          margin: 10px;
+          width: 200px;
+          height: 300px;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .prod-details {
+          margin: 10px;
+          width: calc(100% - 240px);
+
+          .name {
+            padding-bottom: 20px;
+          }
+          .desc {
+            padding-bottom: 20px;
+          }
+          .colour,
+          .size {
+            padding-bottom: 20px;
+            p {
+              padding-bottom: 10px;
+            }
+            .value {
+              padding-left: 10px;
+              display: flex;
+              align-items: center;
+              flex-direction: row;
+              flex-wrap: nowrap;
+              align-content: center;
+              justify-content: flex-start;
+              border: 2px solid #000;
+              height: 30px;
+              width: 200px;
+            }
+          }
+
+          .row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-content: center;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+
+            .quantity {
+              p {
+                padding-bottom: 10px;
+              }
+              .value {
+                padding-left: 10px;
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                align-content: center;
+                justify-content: flex-start;
+                border: 2px solid black;
+                width: 50px;
+                padding: 10px;
+              }
+            }
+            .price {
+            }
+          }
+        }
+      }
+    }
+  }
+  .btn.gold {
+    width: inherit;
+  }
+}

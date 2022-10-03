@@ -1,0 +1,24 @@
+<div class="container" *ngIf="categoryType === 1">
+  <h2>Product Categories</h2>
+  <div class="categories" *ngIf="categoryType === 1">
+    <div class="category" *ngFor="let cat of productCategories">
+      <div class="card" (click)="navigate(cat.productCategoryId)">
+        <!-- should be replaced with cat url -->
+        <img src="{{ imgUrl + cat.imgUrl }}" alt="" srcset="" />
+        <span>{{ cat.productCategoryName }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container" *ngIf="categoryType === 2">
+  <h2>Service Categories</h2>
+  <div class="categories">
+    <div class="category" *ngFor="let cat of serviceCategories">
+      <div class="card" (click)="navigate(cat.serviceCategoryId)">
+        <!-- should be replaced with cat url -->
+        <img src="{{ imgUrl + cat.imgUrl }}" alt="" srcset="" />
+        <span>{{ cat.serviceCategoryName }}</span>
+      </div>
+    </div>
+  </div>
+</div>

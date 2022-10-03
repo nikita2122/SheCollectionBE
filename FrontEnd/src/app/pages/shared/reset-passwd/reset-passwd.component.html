@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="update-psswd">
+    <h3>Forgot Your Password?</h3>
+    <div class="update-psswd-container" *ngIf="!loading">
+      <div class="row">
+        <label for="">Please enter new password below.</label>
+      </div>
+      <div class="row">
+        <input
+          type="password"
+          placeholder="New Password"
+          [(ngModel)]="password"
+        />
+      </div>
+      <div class="row">
+        <input
+          type="password"
+          placeholder="Confirm New Password"
+          [(ngModel)]="passwordConf"
+        />
+      </div>
+      <div class="row">
+        <p class="error" *ngIf="errMsg !== undefined">
+          {{ errMsg }}
+        </p>
+      </div>
+
+      <div class="row btns">
+        <button
+          class="btn"
+          (click)="update()"
+          [disabled]="
+            password === undefined ||
+            passwordConf === undefined ||
+            password !== passwordConf
+          "
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

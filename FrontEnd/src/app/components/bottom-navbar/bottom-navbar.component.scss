@@ -1,0 +1,35 @@
+@import "../../../variables.scss";
+
+.bottom-navbar {
+  width: 100vw;
+  height: $navbar-height;
+  background-color: black;
+  color: $secondary-text-color;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  justify-content: flex-end;
+  align-items: center;
+
+  .bottom-navbar-content-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    p {
+      padding: 10px;
+    }
+    .bottom-navbar-icons {
+      span {
+        padding: 10px 30px 5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.container {
+  padding: 20px;
+  .title {
+    padding: 20px 0px;
+  }
+  .links {
+    padding: 20px;
+    border: 2px solid #000;
+
+    h3 {
+      padding: 10px 0px;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

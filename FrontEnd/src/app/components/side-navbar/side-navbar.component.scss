@@ -1,0 +1,57 @@
+@import "../../../variables.scss";
+
+.main-navbar {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: $navbar-width;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  .logo-link {
+    .logo {
+      width: $navbar-width;
+      background-color: #000;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 2px solid #fff;
+      .logo-icon,
+      .logo-brand {
+        height: 100px;
+      }
+    }
+  }
+  .links {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    .link {
+      cursor: pointer;
+      color: $secondary-text-color;
+      text-decoration: none;
+      text-transform: uppercase;
+      border-top: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      width: $navbar-width;
+      text-align: center;
+      transition: $animation-time;
+      padding: 20px 0px;
+      &:hover {
+        background-color: rgb(57, 57, 57);
+      }
+    }
+  }
+}

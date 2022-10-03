@@ -1,0 +1,52 @@
+@import "./variables.scss";
+
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+
+  scrollbar-width: auto;
+  scrollbar-color: #ffd12c #ffffff;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #000;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #ffd12c;
+    border-radius: 10px;
+    border: 0px solid #ffffff;
+  }
+
+  .row {
+    &.btns {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: flex-end;
+      align-items: center;
+      .btn {
+        font-size: large;
+        padding: 10px 20px;
+        width: 200px;
+        background-color: #000;
+        cursor: pointer;
+        margin: 10px;
+        color: #fff;
+        &.gold {
+          color: $secondary-text-color;
+        }
+        &:disabled {
+          background-color: rgb(134, 134, 134);
+        }
+      }
+      &.right {
+        justify-content: flex-end !important;
+      }
+    }
+  }
+}

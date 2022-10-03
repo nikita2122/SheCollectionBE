@@ -1,0 +1,21 @@
+<div class="main-navbar">
+  <a href="/" class="logo-link">
+    <div class="logo">
+      <img src="../../../assets/images/logo-icon.jfif" class="logo-icon" />
+      <img src="../../../assets/images/logo-brand.jfif" class="logo-brand" />
+    </div>
+  </a>
+  <div class="links">
+    <a href="{{ item.url }}" *ngFor="let item of links" class="link">{{
+      item.label
+    }}</a>
+    <a href="cart" class="link">
+      <span class="material-symbols-outlined"> shopping_cart </span></a
+    >
+    <a href="account" class="link"
+      ><span class="material-symbols-outlined"> account_circle </span></a
+    >
+    <a href="login" class="link" *ngIf="!loggedIn">Log In/Register</a>
+    <a href="logout" class="link" *ngIf="loggedIn">Log Out</a>
+  </div>
+</div>

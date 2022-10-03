@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="calendar-container" *ngIf="!loading">
+    <h2>Bookings</h2>
+    <h3>Select a date</h3>
+    <div class="calendar">
+      <div class="month">
+        <span class="prev" (click)="changeMonth(-1)">&#10094;</span>
+        <span>
+          {{ selectedDate | date: "MMMM YYYY" }}
+        </span>
+        <span class="next" (click)="changeMonth(1)">&#10095;</span>
+      </div>
+
+      <ul class="weekdays">
+        <li *ngFor="let day of week">{{ day }}</li>
+      </ul>
+
+      <ul class="days">
+        <li
+          *ngFor="let day of AmountOfDays; index as i"
+          [class.active]="day === selectedDay"
+          [class.ignore]="ignore(day)"
+          (click)="selectDay(day)"
+        >
+          {{ day }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="confirmation-container">
+    <h3 class="confirmation">
+      {{ selectedDate | date: "EEEE, dd MMM YYYY" }}
+    </h3>
+    <div class="select-time" *ngIf="timeSlots.length > 0">
+      <div
+        class="block"
+        *ngFor="let timeSlot of timeSlots"
+        (click)="selectTime(timeSlot.timeslotId)"
+        [class.unavailable]="!timeSlot.available"
+        [class.selected]="timeSlot.timeslotId === selectedTimeSlotId"
+      >
+        {{ timeSlot.startTime | date: "HH:mm" }}
+      </div>
+    </div>
+    <div class="row btns">
+      <button
+        class="btn gold"
+        (click)="next()"
+        [disabled]="selectedTimeSlotId === undefined"
+      >
+        Next
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="main-navbar">
+  <a href="/" class="logo-link">
+    <div class="logo">
+      <img src="../../../assets/images/logo-icon.jfif" class="logo-icon" />
+      <img src="../../../assets/images/logo-brand.jfif" class="logo-brand" />
+    </div>
+  </a>
+  <div class="links" *ngIf="links !== undefined">
+    <a (click)="navigate(item.url)" *ngFor="let item of links" class="link">{{
+      item.label
+    }}</a>
+  </div>
+</div>

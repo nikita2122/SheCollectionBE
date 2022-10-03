@@ -1,0 +1,25 @@
+<div class="container">
+    
+    <h2>Create database backup</h2>
+    <div class="add-product-modal">
+      <form>       
+        <div class="row">
+          <label for="">Enter backup name</label>
+          <div class="input">
+            <input type="number" #name/>
+          </div>
+        </div>
+        <div class="row btns">
+          <button class="btn" (click)="close()">Cancel</button>
+          <button
+            class="btn gold"
+            (click)="add(name)"
+            [disabled]="name === undefined"
+          >
+            Add
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

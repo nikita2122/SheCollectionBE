@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Product Management</h2>
+  <div class="view-product" *ngIf="!loading">
+    <h2>View Product</h2>
+    <p>Product Name: {{ product.productName }}</p>
+    <p>Product Description: {{ product.productDescription }}</p>
+    <div class="row">
+      <p>Product Picture:</p>
+      <img src="{{ imgUrl + product.productPicture }}" alt="" srcset="" />
+    </div>
+    <p>
+      Product Category:
+      {{ product.productType.productCategory.productCategoryName }}
+    </p>
+    <p>Prodcut Type: {{ product.productType.productTypeName }}</p>
+    <p>Product Price: R{{ product.productPrice | number: "1.2-2" }}</p>
+    <div class="row btns">
+      <button class="btn" (click)="close()">Back</button>
+      <button class="btn" (click)="deleteProd()">Delete</button>
+      <button class="btn gold" (click)="updateProd()">Update</button>
+    </div>
+  </div>
+</div>

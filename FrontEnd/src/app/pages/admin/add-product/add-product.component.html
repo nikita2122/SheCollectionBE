@@ -1,0 +1,141 @@
+<div class="container">
+  <h2>Product Management</h2>
+  <div class="add-product-modal" *ngIf="!loading">
+    <h2>{{ updating ? "Update Product" : "Add Product" }}</h2>
+    <p>Please enter the new product details:</p>
+    <form [formGroup]="addProductForm">
+      <div class="row">
+        <label for="">Product Name:</label>
+        <div class="input">
+          <input type="text" name="" id="" formControlName="name" />
+        </div>
+      </div>
+      <div class="row">
+        <label for="">Product Description:</label>
+        <div class="input">
+          <textarea name="" id="" formControlName="desc"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <label for="">Product Price:</label>
+        <div class="input">
+          <input type="number" name="" id="" formControlName="price" />
+        </div>
+      </div>
+      <div class="row">
+        <label for="">Product Quantity:</label>
+        <div class="input">
+          <input type="number" name="" id="" formControlName="quantity" />
+        </div>
+      </div>
+      <div class="row">
+        <label for="">Product Sizes</label>
+        <div class="input">
+          <div class="checkbox" *ngFor="let size of sizes; let i = index">
+            <input
+              type="checkbox"
+              id="size-{{ i }}"
+              name="{{ size.sizeName }}"
+              value="{{ size.sizeId }}"
+              (change)="onSizeCheckboxChange($event, 'size')"
+              [checked]="shouldBeChecked(size.sizeId.toString(), 'size')"
+              formArrayName="size"
+            />
+            <label for="{{ size.sizeName }}"> {{ size.sizeName }}</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <label for="">Product Colours</label>
+        <div class="input">
+          <div class="checkbox" *ngFor="let col of colours; let i = index">
+            <input
+              type="checkbox"
+              id="col-{{ i }}"
+              name="{{ col.colourName }}"
+              value="{{ col.colourId }}"
+              (change)="onSizeCheckboxChange($event, 'col')"
+              [checked]="shouldBeChecked(col.colourId.toString(), 'col')"
+              formArrayName="col"
+            />
+            <label for="{{ col.colourName }}"> {{ col.colourName }}</label>
+          </div>
+        </div>
+      </div>
+      <div class="row btns">
+        <button class="btn">Add Color</button>
+        <button class="btn">Update Color</button>
+      </div>
+      <div class="row">
+        <label for="">Product Colours</label>
+        <div class="input">
+          <img
+            #image
+            class="upload-image"
+            *ngIf="file !== undefined"
+            src="{{ imgUrl }}"
+            (click)="fileInput.click()"
+          />
+          <button
+            class="upload-image-button"
+            (click)="fileInput.click()"
+            *ngIf="file === undefined"
+          >
+            Upload Product Image
+          </button>
+          <input
+            style="display: none"
+            type="file"
+            name=""
+            id=""
+            (change)="updateFile($event)"
+            [formEnctype]="'multipart/form-data'"
+            accept="image/*"
+            #fileInput
+          />
+        </div>
+      </div>
+      <div class="row">
+        <label for="cat">Product Category</label>
+        <div class="input">
+          <select
+            name="cat"
+            id="cat"
+            (change)="categoryChange($event)"
+            formControlName="cat"
+          >
+            <option
+              *ngFor="let cat of categories"
+              value="{{ cat.productCategoryId }}"
+            >
+              {{ cat.productCategoryName }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <label for="cat">Product Type</label>
+        <div class="input">
+          <select name="type" id="type" formControlName="type">
+            <option
+              *ngFor="let type of filteredTypes"
+              value="{{ type.productTypeId }}"
+            >
+              {{ type.productTypeName }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row btns">
+        <button class="btn" (click)="close()">Cancel</button>
+        <button
+          class="btn gold"
+          (click)="addProduct()"
+          [disabled]="!addProductForm.valid || file === undefined"
+        >
+          Add
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

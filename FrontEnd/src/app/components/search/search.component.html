@@ -1,0 +1,11 @@
+<div class="search-container">
+  <form [formGroup]="searchForm" (ngSubmit)="handleSearch()">
+    <div class="search-box">
+      <span class="material-symbols-outlined"> search </span>
+      <input formControlName="search" type="text" name="search" />
+    </div>
+    <button class="search-btn">
+      <span class="material-symbols-outlined" type="submit"> search </span>
+    </button>
+  </form>
+</div>

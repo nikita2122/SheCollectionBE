@@ -1,0 +1,25 @@
+.view-service {
+  background-color: #fff;
+  border: 2px solid #000;
+  padding: 20px 50px 20px 20px;
+  margin: 20px 0px;
+  display: block;
+
+  p {
+    margin: 10px;
+  }
+
+  .row {
+    display: flex;
+
+    img {
+      margin: 10px;
+      width: 150px;
+      height: 150px;
+    }
+
+    &.btns {
+      justify-content: flex-end;
+    }
+  }
+}

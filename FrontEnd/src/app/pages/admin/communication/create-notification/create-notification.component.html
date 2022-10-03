@@ -1,0 +1,40 @@
+<div class="container">
+
+    <h2>Create a notification</h2>
+    <p>Please enter notification details</p>
+    <div class="add-product-modal">
+        <form>
+            <div class="row">
+                <label for="">Recepient: </label>
+                <div class="input">
+                    <input type="text" #name />
+                </div>
+            </div>
+            <div class="row">
+                <label for="">Email: </label>
+                <div class="input">
+                    <input type="email" #email />
+                </div>
+            </div>
+            <div class="row">
+                <label for="">Subject: </label>
+                <div class="input">
+                    <input type="text" #subject />
+                </div>
+            </div>
+            <div class="row">
+                <label for="">Product Description:</label>
+                <div class="input">
+                    <textarea name="Description" id="" #description></textarea>
+                </div>
+            </div>
+
+            <div class="row btns">
+                <button class="btn" (click)="close()">Cancel</button>
+                <button class="btn gold" (click)="add(name,subject,email,description)" [disabled]="name === undefined">
+                    Add
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
